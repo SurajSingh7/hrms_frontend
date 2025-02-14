@@ -24,7 +24,6 @@ const PermissionsCreate = ({ onSuccess }) => {
         message.error('Failed to load departments');
       }
     };
-
     fetchDepartments();
   }, []);
 
