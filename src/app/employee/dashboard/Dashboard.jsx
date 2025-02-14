@@ -26,6 +26,14 @@ const Dashboard = ({ accessData }) => {
  
 
   useEffect(() => {
+
+
+
+   
+
+
+
+
     const fetchDashboardData = async () => {
       try {
         const url = `${API_BASE_URL}/hrms/authdata`;

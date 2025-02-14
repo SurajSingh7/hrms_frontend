@@ -419,7 +419,7 @@ const Header = ({ heading, status, func }) => {
       {/* text-Gigantic  */}
       {!status && (
         <div className="header-logo"style={{ position: "absolute", left: "50px", bottom: "-11px" }}>
-          <Text style={{ color: "white", fontSize: "16px", fontWeight: 600 }}>
+          <Text style={{ color: "white", fontSize: "13px", fontWeight: 600 }}>
           GIGANTIC
           </Text>
         </div>
@@ -428,8 +428,8 @@ const Header = ({ heading, status, func }) => {
             {/* text-Gigantic  */}
       {status && (
         <div className="header-logo"style={{ position: "absolute", left: "15px", bottom: "-11px" }}>
-          <Text style={{ color: "white", fontSize: "16px", fontWeight: 600 }}>
-            WIBRO
+          <Text style={{ color: "white", fontSize: "13px", fontWeight: 600 }}>
+          GIGANTIC
           </Text>
           </div>
       )}
@@ -440,7 +440,7 @@ const Header = ({ heading, status, func }) => {
           style={{display: "flex",alignItems: "center",justifyContent: "end",height: "100%",padding: "0 20px",gap:"20px" }}
       >
           {/* Search Bar */}
-          <SearchBar />
+          {/* <SearchBar /> */}
 
           {/* Notification, Mail, Settings, Dark Mode */}
           {/* <NotificationMailSettings notificationMenuItems={notificationMenuItems} /> */}

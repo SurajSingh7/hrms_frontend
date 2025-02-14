@@ -175,3 +175,27 @@ const CompanyMaster = () => {
 };
 
 export default CompanyMaster;
+
+
+
+
+
+// const handleSubmit = (event) => {
+//   event.preventDefault();
+//   const formData = new FormData(event.target);
+//   const values = Object.fromEntries(formData.entries());
+//   console.log("CompanyModal value->94 line",values)
+//   console.log("CompanyModal value->9466 line",values["CompanyName"])
+
+//   const data={
+//       companyName: values["CompanyName"],
+//       address: values["Address"],
+//       gstNumber: values["gstNumber"],
+//       state: values["State"],
+//       alias: values["Alias"]
+//   }
+
+//   console.log("CompanyModal value->104 line",data)
+
+//   onSubmit(data);
+// };

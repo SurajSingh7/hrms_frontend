@@ -96,7 +96,7 @@ const Sidebar = ({ status, func }) => {
           mode="inline"
           selectedKeys={selectedKeys} // Track selected key
           onClick={(e) => setSelectedKeys([e.key])} // Update selected key dynamically
-          style={{ background: "#000000", height: "100%", color: "white" }}
+          style={{ background: "#36454f", height: "100%", color: "white" }}
           items={menuItemsData}
         />
       </Sider>
