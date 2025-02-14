@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 const CompanyModal = ({ isOpen, onClose, onSubmit, editingCompany }) => {
-  if (!isOpen) return null;
-
-  // State to handle form values
-  const [formData, setFormData] = useState({
+  // Initial state for a new company
+  const initialFormData = {
     companyName: '',
     address: '',
     gstNumber: '',
     state: '',
     alias: ''
-  });
+  };
+
+  // State to handle form values
+  const [formData, setFormData] = useState(initialFormData);
 
   useEffect(() => {
     if (editingCompany) {
@@ -21,8 +22,12 @@ const CompanyModal = ({ isOpen, onClose, onSubmit, editingCompany }) => {
         state: editingCompany.state || '',
         alias: editingCompany.alias || ''
       });
+    } else {
+      setFormData(initialFormData); // Reset form when adding a new company
     }
-  }, [editingCompany]);
+  }, [editingCompany, isOpen]); // Reset when modal opens
+
+  if (!isOpen) return null; // Ensure hooks are executed before return
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,7 +43,6 @@ const CompanyModal = ({ isOpen, onClose, onSubmit, editingCompany }) => {
   };
 
   const formatLabel = (field) => {
-    // Manually handle the label formatting for specific fields
     const formattedField = field === 'gstNumber' ? 'GST Number' : field.replace(/\b\w/g, (char) => char.toUpperCase());
     return (
       <span>
@@ -60,13 +64,13 @@ const CompanyModal = ({ isOpen, onClose, onSubmit, editingCompany }) => {
               {row.map((field) => (
                 <div key={field}>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    {formatLabel(field)} {/* Added asterisk to all labels */}
+                    {formatLabel(field)}
                   </label>
                   <input
                     type="text"
                     name={field}
-                    value={formData[field]}  // Controlled input value
-                    onChange={handleChange}  // Handle input change
+                    value={formData[field]} 
+                    onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                     required
                   />
@@ -96,6 +100,5 @@ const CompanyModal = ({ isOpen, onClose, onSubmit, editingCompany }) => {
 };
 
 export default CompanyModal;
-
 
 
