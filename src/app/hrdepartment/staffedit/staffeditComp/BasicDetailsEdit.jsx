@@ -20,7 +20,7 @@ export default function BasicDetailsEdit({ id, setModalData }) {
     // Fetch data and pre-fill the form
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:5000/hrms/basicemployees/${id}`);
+        const response = await fetch(`NEXT_PUBLIC_API_BASE_URL/hrms/basicemployees/${id}`);
         if (!response.ok) throw new Error("Failed to fetch data");
         const data = await response.json();
         // Pre-fill form fields
@@ -37,7 +37,7 @@ export default function BasicDetailsEdit({ id, setModalData }) {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:5000/hrms/basicemployees/${id}`, {
+      const response = await fetch(`NEXT_PUBLIC_API_BASE_URL/hrms/basicemployees/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

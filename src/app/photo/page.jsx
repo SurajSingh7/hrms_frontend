@@ -1,6 +1,6 @@
 const EmployeeAvatar = ({ avatar }) => {
     // The avatar URL will be the path provided from the backend
-    const imageUrl = 'http://localhost:5000/uploads/1725533862390-342053794.png';
+    const imageUrl = 'NEXT_PUBLIC_API_BASE_URL/uploads/1725533862390-342053794.png';
   
     return (
       <div>

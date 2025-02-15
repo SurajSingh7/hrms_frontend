@@ -1,18 +1,30 @@
 'use client'
 import EmployeeWizard from '@/app/(webadmin)/user-management/employee-view/page';
 import Layout from '../../../layouts/hrHrms/layout/Layout';
-import React from 'react'
+import React from 'react';
+
+import { useRouter } from 'next/navigation';
+import CustomSpin from '@/app/employee/dashboard/CustomSpin';
+import useCheckToken from '@/component/common/hook/useCheckToken';
+
+const EmployeePage = () => {
+
+  const router = useRouter();
+  const { loadingToken, unauthorized } = useCheckToken();
+  if (unauthorized) {
+    router.replace("/");
+    return null;
+  }
+  if (loadingToken) return <CustomSpin />;
 
 
-
-const page = () => {
   return (
-    <Layout >
-      <div style={{padding: "50px"}}>
-           <EmployeeWizard />
+    <Layout>
+      <div style={{ padding: "50px" }}>
+        <EmployeeWizard />
       </div>
- </Layout>
-  )
-}
+    </Layout>
+  );
+};
 
-export default page
+export default EmployeePage;

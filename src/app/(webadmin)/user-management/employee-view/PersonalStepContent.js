@@ -22,9 +22,24 @@ const PersonalStepContent = ({ fileList, handleFileChange, ifscCode, handleIfscC
 
       <Row gutter={16}>
         <Col span={12}>
-          <Form.Item label="Phone" name="phone">
+          {/* <Form.Item label="Phone" name="phone">
             <Input />
+          </Form.Item> */}
+
+          <Form.Item 
+            label="Phone" 
+            name="phone"
+            rules={[
+              { required: true, message: 'Phone number is required' },
+              { pattern: /^\d{10}$/, message: 'Phone number must be exactly 10 digits' }
+            ]}
+          >
+            <Input maxLength={10} />
           </Form.Item>
+
+
+
+
         </Col>
         <Col span={12}>
           <Form.Item label="Blood Group" name="bloodGroup">

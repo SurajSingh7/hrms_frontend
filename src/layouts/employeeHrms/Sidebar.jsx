@@ -72,6 +72,17 @@ const Sidebar = ({ status, func }) => {
           ),
         }))
       : []), // Provide an empty array as fallback if menuItems is undefined or not an array
+
+
+      // {
+      //   key: "user",
+      //   icon: <UserOutlined />,
+      //   label: (
+      //     <Link href="/super-admin/company-master" style={{ textDecoration: "none", color: "white" }}>
+      //       S-Admin
+      //     </Link>
+      //   ),
+      // },
   ];
   
 

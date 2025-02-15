@@ -10,7 +10,7 @@ const EmploymentComp = ({ setModalData, id }) => {
   useEffect(() => {
     // Fetch data when component is mounted
     axios
-      .get(`http://localhost:5000/hrms/employees/${id}`)
+      .get(`NEXT_PUBLIC_API_BASE_URL/hrms/employees/${id}`)
       .then((response) => {
         // Set form values with the fetched data
         const data = response.data;
@@ -30,7 +30,7 @@ const EmploymentComp = ({ setModalData, id }) => {
   const onSubmit = (data) => {
     // Send updated data to the backend with PUT request
     axios
-      .put(`http://localhost:5000/hrms/employees/${id}`, data)
+      .put(`NEXT_PUBLIC_API_BASE_URL/hrms/employees/${id}`, data)
       .then((response) => {
         toast.success("Data updated successfully!"); // Show success toast
         setModalData(null); // Close modal or reset modal data

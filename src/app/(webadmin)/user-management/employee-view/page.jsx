@@ -129,7 +129,7 @@ const EmployeeWizard = ({ onSuccess }) => {
   //     formData.append(type, info.file.originFileObj || info.file); // Use info.file directly if originFileObj is not available
   //     // Call the API directly after the file is selected
   //     try {
-  //       const response = await axios.post('http://localhost:5000/hrms/uploads', formData, {
+  //       const response = await axios.post('NEXT_PUBLIC_API_BASE_URL/hrms/uploads', formData, {
   //         headers: { 'Content-Type': 'multipart/form-data' },
   //       });
 
@@ -193,7 +193,7 @@ const EmployeeWizard = ({ onSuccess }) => {
   
   //   try {
   //     // API call to upload the file
-  //     const response = await axios.post('http://localhost:5000/hrms/uploads', formData, {
+  //     const response = await axios.post('NEXT_PUBLIC_API_BASE_URL/hrms/uploads', formData, {
   //       headers: { 'Content-Type': 'multipart/form-data' },
   //     });
   
@@ -238,7 +238,7 @@ const EmployeeWizard = ({ onSuccess }) => {
   // useEffect(() => {
   //   const fetchShifts = async () => {
   //     try {
-  //       const response = await axios.get('http://localhost:5000/hrms/shift');
+  //       const response = await axios.get('NEXT_PUBLIC_API_BASE_URL/hrms/shift');
   //       setShifts(response.data);
   //     } catch (error) {
   //       message.error('Failed to fetch shift timings');

@@ -39,7 +39,7 @@ const CompanyMaster = () => {
       if (editingCompany) {
         await axios.patch(`http://localhost:8000/hrms/company/${editingCompany._id}`, values);
       } else {
-        await axios.post('http://localhost:5000/hrms/company/create', values);
+        await axios.post('NEXT_PUBLIC_API_BASE_URL/hrms/company/create', values);
       }
       setEditingCompany(null);
       form.resetFields();

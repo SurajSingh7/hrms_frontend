@@ -15,6 +15,9 @@ import LaptopList from "./LaptopTable";
 import RouterTable from "./RouterTable";
 import MobileTable from "./MobileTable";
 import SimTable from "./SimTable";
+import { useRouter } from "next/navigation";
+import useCheckToken from "@/component/common/hook/useCheckToken";
+import CustomSpin from "@/app/employee/dashboard/CustomSpin";
 
 function Inventory() {
   const [collapsed, setCollapsed] = useState(true);
@@ -366,6 +369,19 @@ function Inventory() {
       data: [simCount, mobileCount, laptopCount, routerCount],
     },
   ];
+
+
+
+
+   // check token part
+  const router = useRouter();
+  const { loadingToken, unauthorized } = useCheckToken();
+  if (unauthorized) {
+    router.replace("/");
+    return null;
+  }
+  if (loadingToken) return <CustomSpin />;
+
 
   return (
     <Layout>
