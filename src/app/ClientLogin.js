@@ -63,8 +63,7 @@ const ClientLogin = () => {
                     localStorage.removeItem('rememberMe');
                 }
                 toast.success('Login successful');
-                document.location.href = '/employee/dashboard';
-
+                document.location.href = "/mfa"                
             } else if (error) {
                 const details = error?.details?.[0]?.message || 'An error occurred';
                 toast.error(details);

@@ -16,7 +16,7 @@ const PersonalComp = ({ setModalData, id }) => {
   useEffect(() => {
     // Fetch existing data for editing
     axios
-      .get(`http://localhost:5000/hrms/personal-details/${id}`)
+      .get(`NEXT_PUBLIC_API_BASE_URL/hrms/personal-details/${id}`)
       .then((response) => {
         const defaultValues = {
           personalEmail: '',
@@ -54,7 +54,7 @@ const PersonalComp = ({ setModalData, id }) => {
 
   const onSubmit = (data) => {
     axios
-      .put(`http://localhost:5000/hrms/personal-details/${id}`, data)
+      .put(`NEXT_PUBLIC_API_BASE_URL/hrms/personal-details/${id}`, data)
       .then((response) => {
         toast.success('Data updated successfully!');
         setModalData(null); // Close modal or reset modal data

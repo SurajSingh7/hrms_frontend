@@ -9,9 +9,14 @@ import EmployeeWizard from '@/app/(webadmin)/user-management/employee-view/page'
 import API_BASE_URL from '../../../../config/config';
 import IOSGallery from '../gallery/page';
 import { useRouter } from "next/navigation";
+import useCheckToken from '@/component/common/hook/useCheckToken';
+import CustomSpin from '@/app/employee/dashboard/CustomSpin';
 
 
 const EmployeeTable = () => {
+
+
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -65,15 +70,15 @@ const EmployeeTable = () => {
     { title: 'Email', dataIndex: 'email', key: 'email' },
     { title: 'Date of Joining', dataIndex: 'dateOfJoining', key: 'dateOfJoining' },
     { title: 'Gender', dataIndex: 'gender', key: 'gender' },
-    {
-      title: 'Documents',
-      key: 'action',
-      render: (text, record) => (
-        <Button type="primary" onClick={() => showModal2(record)}>
-          View
-        </Button>
-      ),
-    },
+    // {
+    //   title: 'Documents',
+    //   key: 'action',
+    //   render: (text, record) => (
+    //     <Button type="primary" onClick={() => showModal2(record)}>
+    //       View
+    //     </Button>
+    //   ),
+    // },
   ];
 
   const showModal = () => {
@@ -107,6 +112,17 @@ const EmployeeTable = () => {
   const handleCancel2 = () => {
     setIsModalVisible2(false);
   };
+
+
+  // check token part
+  // const router = useRouter();
+  const { loadingToken, unauthorized } = useCheckToken();
+  if (unauthorized) {
+    router.replace("/");
+    return null;
+  }
+  if (loadingToken) return <CustomSpin />;
+
 
   return (
     <Layout>

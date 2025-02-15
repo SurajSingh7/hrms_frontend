@@ -42,6 +42,7 @@ const Dashboard = ({ accessData }) => {
 
           const { email, department, basicemployees, role } = employeeData;
 
+
           setUserData({
             email,
             department: department?.name,
@@ -76,7 +77,7 @@ const Dashboard = ({ accessData }) => {
     }
   }, [unauthorized, router]);
 
-  if (unauthorized) return null; // Prevent rendering if unauthorized
+  if (unauthorized) return null; 
 
   if (loading) return <CustomSpin />;
 

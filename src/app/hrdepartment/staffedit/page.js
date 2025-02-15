@@ -9,6 +9,10 @@ import PersonalComp from "./staffeditComp/PersonalComp" // Import other componen
 import EmploymentComp from "./staffeditComp/EmploymentComp" // Example for Employment
 import SalaryDetailsComp from "./staffeditComp/SalaryDetailsComp" // Example for Salary Details
 import LoginDetailsComp from "./staffeditComp/LoginDetailsComp" // Example for Login Details
+import useCheckToken from "@/component/common/hook/useCheckToken"
+import { useRouter } from "next/navigation"
+import CustomSpin from "@/app/employee/dashboard/CustomSpin"
+import API_BASE_URL from "../../../../config/config"
 
 
 const EmployeeTable = () => {
@@ -21,7 +25,7 @@ const EmployeeTable = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/hrms/basicemployees`)
+        const response = await axios.get(`${API_BASE_URL}/hrms/basicemployees`)
         setEmployees(response.data)
       } catch (error) {
       }
@@ -108,6 +112,17 @@ const EmployeeTable = () => {
 
 
   }
+
+
+   // check token part
+  const router = useRouter();
+  const { loadingToken, unauthorized } = useCheckToken();
+  if (unauthorized) {
+    router.replace("/");
+    return null;
+  }
+  if (loadingToken) return <CustomSpin />;
+
 
   return (
     <Layout>

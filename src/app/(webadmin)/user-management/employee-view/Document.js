@@ -28,7 +28,7 @@ export default function Home() {
 
       console.log('FormData being sent:', formData); // Log the formData to ensure it's correct
 
-      await axios.post(`http://localhost:5000/hrms/document`, formData);
+      await axios.post(`NEXT_PUBLIC_API_BASE_URL/hrms/document`, formData);
       toast.success('Employee data saved successfully!');
       
       reset();

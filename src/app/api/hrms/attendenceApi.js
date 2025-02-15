@@ -11,4 +11,4 @@ export const fetchAttendanceData = async () => {
   }
 };
 
-// http://localhost:50001/noceye/api/v1/attendance
+// NEXT_PUBLIC_API_BASE_URL1/noceye/api/v1/attendance

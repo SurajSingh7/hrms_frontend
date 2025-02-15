@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CompanyModal from './CompanyModal';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import API_BASE_URL from '../../../../config/config';
 
 const CompanyMaster = () => {
   const [companies, setCompanies] = useState([]);
@@ -14,7 +15,7 @@ const CompanyMaster = () => {
 
   const fetchCompanies = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/hrms/company/show');
+      const response = await axios.get(`${API_BASE_URL}/hrms/company/show`);
       setCompanies(response.data.data);
       setFilteredCompanies(response.data.data);
       setLoading(false);
@@ -31,9 +32,9 @@ const CompanyMaster = () => {
   const handleSubmit = async (values) => {
     try {
       if (editingCompany) {
-        await axios.put(`http://localhost:5000/hrms/company/edit/${editingCompany._id}`, values);
+        await axios.put(`${API_BASE_URL}/hrms/company/edit/${editingCompany._id}`, values);
       } else {
-        await axios.post('http://localhost:5000/hrms/company/create', values);
+        await axios.post(`${API_BASE_URL}/hrms/company/create`, values);
       }
       setEditingCompany(null);
       setIsModalOpen(false);
@@ -45,7 +46,7 @@ const CompanyMaster = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/hrms/company/delete/${id}`);
+      await axios.delete(`${API_BASE_URL}/hrms/company/delete/${id}`);
       fetchCompanies();
     } catch (error) {
       console.error('Error deleting company:', error);
@@ -154,7 +155,7 @@ export default CompanyMaster;
 
 //   const fetchCompanies = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/hrms/company/show');
+//       const response = await axios.get('NEXT_PUBLIC_API_BASE_URL/hrms/company/show');
 //       setCompanies(response.data.data);
 //       setFilteredCompanies(response.data.data);
 //       setLoading(false);
@@ -171,9 +172,9 @@ export default CompanyMaster;
 //   const handleSubmit = async (values) => {
 //     try {
 //       if (editingCompany) {
-//         await axios.put(`http://localhost:5000/hrms/company/edit/${editingCompany._id}`, values);
+//         await axios.put(`NEXT_PUBLIC_API_BASE_URL/hrms/company/edit/${editingCompany._id}`, values);
 //       } else {
-//         await axios.post('http://localhost:5000/hrms/company/create', values);
+//         await axios.post('NEXT_PUBLIC_API_BASE_URL/hrms/company/create', values);
 //       }
 //       setEditingCompany(null);
 //       setIsModalOpen(false);
@@ -185,7 +186,7 @@ export default CompanyMaster;
 
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/hrms/company/delete/${id}`);
+//       await axios.delete(`NEXT_PUBLIC_API_BASE_URL/hrms/company/delete/${id}`);
 //       fetchCompanies();
 //     } catch (error) {
 //       console.error('Error deleting company:', error);

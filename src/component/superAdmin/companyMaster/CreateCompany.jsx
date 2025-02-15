@@ -12,7 +12,7 @@ const CompanyMaster = () => {
 
   const fetchCompanies = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/hrms/company/show');
+      const response = await axios.get('NEXT_PUBLIC_API_BASE_URL/hrms/company/show');
       setCompanies(response.data.data);
       setFilteredCompanies(response.data.data);
       setLoading(false);
@@ -43,9 +43,9 @@ const CompanyMaster = () => {
 
 //     try {
 //       if (editingCompany) {
-//         await axios.put(`http://localhost:5000/hrms/company/edit/${editingCompany._id}`, values);
+//         await axios.put(`NEXT_PUBLIC_API_BASE_URL/hrms/company/edit/${editingCompany._id}`, values);
 //       } else {
-//         await axios.post('http://localhost:5000/hrms/company/create', values);
+//         await axios.post('NEXT_PUBLIC_API_BASE_URL/hrms/company/create', values);
 //       }
 //       setEditingCompany(null);
 //       setIsModalOpen(false);
@@ -57,7 +57,7 @@ const CompanyMaster = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/hrms/company/delete/${id}`);
+      await axios.delete(`NEXT_PUBLIC_API_BASE_URL/hrms/company/delete/${id}`);
       fetchCompanies();
     } catch (error) {
       console.error('Error deleting company:', error);
